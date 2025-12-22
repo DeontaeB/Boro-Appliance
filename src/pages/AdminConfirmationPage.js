@@ -14,9 +14,33 @@ const AdminConfirmationPage = ({ onBack }) => {
   const [selectedTech, setSelectedTech] = useState({});
   const [confirming, setConfirming] = useState(null);
 
+  // Password protection
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const ADMIN_PASSWORD = 'SexyWhitley1!';
+
   useEffect(() => {
-    loadData();
+    // Check if already authenticated in this session
+    const authStatus = sessionStorage.getItem('admin_authenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+      loadData();
+    }
   }, []);
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (passwordInput === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('admin_authenticated', 'true');
+      setPasswordError('');
+      loadData();
+    } else {
+      setPasswordError('Incorrect password. Please try again.');
+      setPasswordInput('');
+    }
+  };
 
   const loadData = async () => {
     setLoading(true);
@@ -53,6 +77,49 @@ const AdminConfirmationPage = ({ onBack }) => {
   const handleTechSelect = (bookingId, techId) => {
     setSelectedTech({ ...selectedTech, [bookingId]: techId });
   };
+
+  // Show password prompt if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center p-4">
+        <Card className="max-w-md w-full">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">🔒 Admin Access</h2>
+            <p className="text-gray-600 text-sm">Enter password to continue</p>
+          </div>
+
+          <form onSubmit={handlePasswordSubmit}>
+            <div className="mb-4">
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                placeholder="Enter admin password"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none text-center text-lg"
+                autoFocus
+              />
+              {passwordError && (
+                <p className="text-red-600 text-sm mt-2 text-center">{passwordError}</p>
+              )}
+            </div>
+
+            <Button type="submit" fullWidth size="lg">
+              Access Admin Panel
+            </Button>
+          </form>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={onBack}
+              className="text-sm text-gray-500 hover:text-gray-700 transition"
+            >
+              ← Back to Home
+            </button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

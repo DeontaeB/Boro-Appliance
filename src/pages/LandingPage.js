@@ -23,45 +23,72 @@ const LandingPage = ({ onBookNow }) => {
         </div>
       </nav>
 
+      {/* Local Trust Banner */}
+      <div className="bg-gradient-to-r from-green-600 to-green-700 text-white py-3 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="font-bold text-sm md:text-base flex items-center justify-center gap-2">
+            <span className="text-xl">📍</span>
+            Proudly Serving Rutherford County Since 2020 - Your Local Appliance Experts
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section - Conversion Optimized */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white py-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             {/* Social Proof Badge */}
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <span className="text-yellow-300 mr-2">⭐⭐⭐⭐⭐</span>
-              <span className="text-sm">4.9/5 from 200+ customers</span>
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-md px-6 py-3 rounded-full mb-8 shadow-lg border border-white/30">
+              <span className="text-yellow-300 mr-3 text-lg">★★★★★</span>
+              <span className="text-sm font-semibold">4.9/5 Rating • 200+ Happy Customers in Rutherford County</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Appliance Broken? <br />Fixed Today.
+            <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+              Appliance Broken?<br />
+              <span className="text-yellow-300">We Fix It Today.</span>
             </h2>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Book in 60 seconds. Expert tech at your door same-day. <br />
-              <span className="font-semibold text-white">$99 diagnostic fee. No hidden charges.</span>
+            <p className="text-xl md:text-2xl mb-4 text-blue-50 max-w-3xl mx-auto leading-relaxed">
+              <span className="font-bold text-white">Murfreesboro • Smyrna • LaVergne • Eagleville</span>
+            </p>
+            <p className="text-lg md:text-xl mb-10 text-blue-100 max-w-3xl mx-auto">
+              Same-day service. Expert techs. Upfront pricing.<br />
+              <span className="font-bold text-white text-2xl">Only $99 Diagnostic Fee</span>
             </p>
 
             {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={onBookNow} size="lg" variant="secondary">
-                Schedule Repair - $99
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+              <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform">
+                📅 Book Same-Day Service - $99
               </Button>
-              <p className="text-sm text-blue-200">
-                ⚡ Most appointments within 24 hours
-              </p>
+              <div className="flex flex-col items-center sm:items-start">
+                <p className="text-sm text-yellow-300 font-semibold">
+                  ⚡ Available TODAY in Rutherford County
+                </p>
+                <p className="text-xs text-blue-200">
+                  Most appointments within 2-4 hours
+                </p>
+              </div>
             </div>
 
             {/* Trust Signals */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { icon: '✅', text: 'Licensed & Insured' },
-                { icon: '🛡️', text: '90-Day Warranty' },
-                { icon: '💰', text: 'Upfront Pricing' },
-                { icon: '⏰', text: 'Same-Day Service' },
+                { icon: '✓', text: 'Licensed & Insured', subtext: 'TN State Certified' },
+                { icon: '⚡', text: 'Same-Day Service', subtext: '2-4 Hour Response' },
+                { icon: '💰', text: 'Upfront Pricing', subtext: 'No Hidden Fees' },
+                { icon: '🛡️', text: '90-Day Warranty', subtext: 'Parts & Labor' },
               ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl mb-2">{item.icon}</div>
-                  <p className="text-sm font-medium">{item.text}</p>
+                <div key={index} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:bg-white/20 transition">
+                  <div className="text-4xl font-bold mb-2 text-yellow-300">{item.icon}</div>
+                  <p className="text-sm font-bold mb-1">{item.text}</p>
+                  <p className="text-xs text-blue-200">{item.subtext}</p>
                 </div>
               ))}
             </div>
@@ -70,47 +97,58 @@ const LandingPage = ({ onBookNow }) => {
       </section>
 
       {/* Urgency Banner */}
-      <div className="bg-yellow-400 text-gray-900 py-3">
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="font-semibold">
-            ⚡ Limited slots available today! Book now to secure your same-day appointment.
+          <p className="font-bold text-base md:text-lg flex items-center justify-center gap-2">
+            <span className="animate-pulse">⚡</span>
+            Only 3 Same-Day Slots Left in Rutherford County Today!
+            <span className="animate-pulse">⚡</span>
           </p>
         </div>
       </div>
 
       {/* Services Section */}
-      <section id="services" className="py-16 bg-white">
+      <section id="services" className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">
-            Appliances We Repair
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            From refrigerators to dishwashers, we fix all major home appliances quickly and affordably.
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
+              We Fix Every Major Appliance
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Serving homeowners across <span className="font-bold text-blue-600">Murfreesboro, Smyrna, LaVergne & Eagleville</span> with expert repairs
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Refrigerators', icon: '🧊', popular: true },
-              { name: 'Washers & Dryers', icon: '🌀', popular: true },
-              { name: 'Dishwashers', icon: '🍽️', popular: false },
-              { name: 'Ovens & Stoves', icon: '🔥', popular: false },
-              { name: 'Microwaves', icon: '📻', popular: false },
-              { name: 'Garbage Disposals', icon: '🗑️', popular: false },
-              { name: 'Ice Makers', icon: '🧊', popular: false },
-              { name: 'Range Hoods', icon: '💨', popular: false },
+              { name: 'Refrigerators', icon: '❄️', popular: true, desc: 'Cooling issues, leaks' },
+              { name: 'Washers & Dryers', icon: '🔄', popular: true, desc: 'Not spinning, draining' },
+              { name: 'Dishwashers', icon: '🍽️', popular: false, desc: 'Not cleaning, leaking' },
+              { name: 'Ovens & Stoves', icon: '🔥', popular: false, desc: 'Not heating, igniters' },
+              { name: 'Microwaves', icon: '⚡', popular: false, desc: 'Not heating, sparking' },
+              { name: 'Garbage Disposals', icon: '🔧', popular: false, desc: 'Jammed, leaking' },
+              { name: 'Ice Makers', icon: '🧊', popular: false, desc: 'Not making ice' },
+              { name: 'Range Hoods', icon: '💨', popular: false, desc: 'Fan, lights issues' },
             ].map((service, index) => (
               <div
                 key={index}
-                className="relative text-center p-6 border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition cursor-pointer"
+                className="relative text-center p-8 bg-white border-2 border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-2xl transition-all transform hover:-translate-y-1 cursor-pointer group"
               >
                 {service.popular && (
-                  <span className="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1 rounded">
-                    POPULAR
+                  <span className="absolute -top-3 right-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    MOST POPULAR
                   </span>
                 )}
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-base font-semibold text-gray-800">{service.name}</h3>
+                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.name}</h3>
+                <p className="text-sm text-gray-500">{service.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-6">Don't see your appliance? We likely fix it!</p>
+            <Button onClick={onBookNow} size="lg">
+              Book Your Repair Now
+            </Button>
           </div>
         </div>
       </section>
@@ -128,20 +166,20 @@ const LandingPage = ({ onBookNow }) => {
             {[
               {
                 step: '1',
-                title: 'Book Online',
-                description: 'Choose your appliance, date, and time. Pay $99 diagnostic fee securely with your card.',
-                time: '60 seconds',
+                title: 'Book Online in 60 Seconds',
+                description: 'Choose your appliance, pick a time that works for you. $99 diagnostic fee - pay cash or card at appointment.',
+                time: 'Takes 1 minute',
               },
               {
                 step: '2',
-                title: 'We Assign a Pro',
-                description: 'Our system instantly matches you with the best available certified technician in your area.',
-                time: 'Instant',
+                title: 'We Call to Confirm',
+                description: 'We will call within 2 hours to confirm your appointment and answer any questions. Real person, not a robot!',
+                time: 'Within 2 hours',
               },
               {
                 step: '3',
-                title: 'Get It Fixed',
-                description: 'Tech diagnoses the issue, provides upfront quote, and completes repair on the spot.',
+                title: 'Same-Day Repair',
+                description: 'Licensed tech arrives on time, diagnoses the problem, gives upfront quote, and fixes it on the spot.',
                 time: 'Same day',
               },
             ].map((item, index) => (
@@ -177,21 +215,21 @@ const LandingPage = ({ onBookNow }) => {
                 name: 'Sarah M.',
                 location: 'Murfreesboro, TN',
                 rating: 5,
-                text: 'My refrigerator stopped cooling on a Sunday. They had someone out within 3 hours and fixed it the same day. Amazing service!',
+                text: 'My refrigerator stopped cooling on a Sunday. They had someone out within 3 hours and fixed it the same day. Amazing service for Rutherford County!',
                 date: '2 days ago',
               },
               {
                 name: 'John D.',
                 location: 'Smyrna, TN',
                 rating: 5,
-                text: 'Upfront pricing with no surprises. The tech was professional and explained everything. Will definitely use again.',
+                text: 'Finally found a local company I can trust! Upfront pricing with no surprises. The tech was professional and explained everything. Will definitely use again.',
                 date: '1 week ago',
               },
               {
                 name: 'Lisa K.',
-                location: 'Murfreesboro, TN',
+                location: 'LaVergne, TN',
                 rating: 5,
-                text: 'Fixed my washer in under an hour. The booking process was so easy. Highly recommend!',
+                text: 'Fixed my washer in under an hour. The booking process was so easy and they actually showed up on time. Best appliance repair in Rutherford County!',
                 date: '2 weeks ago',
               },
             ].map((review, index) => (
@@ -255,23 +293,38 @@ const LandingPage = ({ onBookNow }) => {
       </section>
 
       {/* CTA Section with Scarcity */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Don't Let a Broken Appliance Ruin Your Day
+      <section className="py-20 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}></div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Don't Let a Broken Appliance<br />
+            <span className="text-yellow-300">Ruin Your Day</span>
           </h2>
-          <p className="text-xl mb-2 text-blue-100">
-            Book your same-day appointment now while slots are still available.
+          <p className="text-2xl mb-4 text-blue-50 font-semibold">
+            📍 Same-Day Service Available in Rutherford County
           </p>
-          <p className="text-sm mb-8 text-blue-200">
-            ⏰ Only 3 slots left for today
+          <p className="text-lg mb-8 text-blue-100">
+            Murfreesboro • Smyrna • LaVergne • Eagleville
           </p>
-          <Button onClick={onBookNow} size="lg" variant="secondary">
-            Book Your Repair Now - $99
-          </Button>
-          <p className="mt-4 text-sm text-blue-200">
-            💳 Secure payment • 🛡️ 90-day warranty • ⭐ 4.9/5 rating
-          </p>
+          <div className="bg-orange-500 text-white py-3 px-6 rounded-lg mb-8 inline-block">
+            <p className="font-bold text-lg">
+              ⏰ Only 3 Slots Left for TODAY
+            </p>
+          </div>
+          <div className="mb-8">
+            <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform">
+              📅 Book Same-Day Repair - Only $99
+            </Button>
+          </div>
+          <div className="flex items-center justify-center gap-6 text-sm">
+            <span className="flex items-center gap-2">✓ Licensed & Insured</span>
+            <span className="flex items-center gap-2">✓ 90-Day Warranty</span>
+            <span className="flex items-center gap-2">✓ 4.9/5 Rating</span>
+          </div>
         </div>
       </section>
 
@@ -300,9 +353,11 @@ const LandingPage = ({ onBookNow }) => {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Service Area</h4>
+              <p className="text-yellow-400 font-semibold text-sm mb-2">Rutherford County Only:</p>
               <p className="text-gray-400 text-sm">Murfreesboro, TN</p>
               <p className="text-gray-400 text-sm">Smyrna, TN</p>
-              <p className="text-gray-400 text-sm">& surrounding areas</p>
+              <p className="text-gray-400 text-sm">LaVergne, TN</p>
+              <p className="text-gray-400 text-sm">Eagleville, TN</p>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
