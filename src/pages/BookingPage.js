@@ -84,7 +84,7 @@ const BookingPage = ({ onBack, onBookingComplete, preSelectedAppliance }) => {
       }
     } catch (err) {
       console.error('Booking creation error:', err);
-      setError('Unable to submit booking. Please call us at (615) 605-1929 or try again.');
+      setError('Unable to confirm booking. Please refresh the page and try again, or contact support.');
     } finally {
       setLoading(false);
     }
