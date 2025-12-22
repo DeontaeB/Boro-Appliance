@@ -4,12 +4,12 @@ import Input from '../components/Input';
 import Card from '../components/Card';
 import { createBooking } from '../services/bookingService';
 
-const BookingPage = ({ onBack, onBookingComplete }) => {
+const BookingPage = ({ onBack, onBookingComplete, preSelectedAppliance }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
-    appliance: '',
+    appliance: preSelectedAppliance || '',
     issue: '',
     name: '',
     email: '',
@@ -84,7 +84,7 @@ const BookingPage = ({ onBack, onBookingComplete }) => {
       }
     } catch (err) {
       console.error('Booking creation error:', err);
-      setError('Failed to complete booking. Please contact support.');
+      setError('Unable to submit booking. Please call us at (615) 605-1929 or try again.');
     } finally {
       setLoading(false);
     }

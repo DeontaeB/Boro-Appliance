@@ -7,9 +7,13 @@ import AdminConfirmationPage from './pages/AdminConfirmationPage';
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');
   const [confirmedBooking, setConfirmedBooking] = useState(null);
+  const [selectedAppliance, setSelectedAppliance] = useState(null);
 
-  const navigateTo = (page) => {
+  const navigateTo = (page, appliance = null) => {
     setCurrentPage(page);
+    if (appliance) {
+      setSelectedAppliance(appliance);
+    }
     window.scrollTo(0, 0);
   };
 
@@ -33,12 +37,16 @@ function App() {
   return (
     <div className="App">
       {currentPage === 'landing' && (
-        <LandingPage onBookNow={() => navigateTo('booking')} />
+        <LandingPage
+          onBookNow={() => navigateTo('booking')}
+          onApplianceSelect={(appliance) => navigateTo('booking', appliance)}
+        />
       )}
       {currentPage === 'booking' && (
         <BookingPage
           onBack={() => navigateTo('landing')}
           onBookingComplete={handleBookingComplete}
+          preSelectedAppliance={selectedAppliance}
         />
       )}
       {currentPage === 'confirmation' && (

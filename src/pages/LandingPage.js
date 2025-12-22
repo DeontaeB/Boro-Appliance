@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-const LandingPage = ({ onBookNow }) => {
+const LandingPage = ({ onBookNow, onApplianceSelect }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -58,14 +58,14 @@ const LandingPage = ({ onBookNow }) => {
               <span className="font-bold text-white">Murfreesboro • Smyrna • LaVergne • Eagleville</span>
             </p>
             <p className="text-lg md:text-xl mb-10 text-blue-100 max-w-3xl mx-auto">
-              Same-day service. Expert techs. Upfront pricing.<br />
+              Fast response. Expert techs. Upfront pricing.<br />
               <span className="font-bold text-white text-2xl">Only $99 Diagnostic Fee</span>
             </p>
 
             {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
               <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform">
-                📅 Book Same-Day Service - $99
+                📅 Book Your Repair - $99
               </Button>
               <div className="flex flex-col items-center sm:items-start">
                 <p className="text-sm text-yellow-300 font-semibold">
@@ -81,7 +81,7 @@ const LandingPage = ({ onBookNow }) => {
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
                 { icon: '✓', text: 'Licensed & Insured', subtext: 'TN State Certified' },
-                { icon: '⚡', text: 'Same-Day Service', subtext: '2-4 Hour Response' },
+                { icon: '⚡', text: 'Fast Response', subtext: '2-4 Hour Arrival' },
                 { icon: '💰', text: 'Upfront Pricing', subtext: 'No Hidden Fees' },
                 { icon: '🛡️', text: '90-Day Warranty', subtext: 'Parts & Labor' },
               ].map((item, index) => (
@@ -101,7 +101,7 @@ const LandingPage = ({ onBookNow }) => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="font-bold text-base md:text-lg flex items-center justify-center gap-2">
             <span className="animate-pulse">⚡</span>
-            Only 3 Same-Day Slots Left in Rutherford County Today!
+            Only 3 Priority Slots Left in Rutherford County Today!
             <span className="animate-pulse">⚡</span>
           </p>
         </div>
@@ -131,6 +131,7 @@ const LandingPage = ({ onBookNow }) => {
             ].map((service, index) => (
               <div
                 key={index}
+                onClick={() => onApplianceSelect && onApplianceSelect(service.name.toLowerCase().replace(' & ', '-').replace(' ', '-'))}
                 className="relative text-center p-8 bg-white border-2 border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-2xl transition-all transform hover:-translate-y-1 cursor-pointer group"
               >
                 {service.popular && (
@@ -178,9 +179,9 @@ const LandingPage = ({ onBookNow }) => {
               },
               {
                 step: '3',
-                title: 'Same-Day Repair',
+                title: 'Fast Repair Service',
                 description: 'Licensed tech arrives on time, diagnoses the problem, gives upfront quote, and fixes it on the spot.',
-                time: 'Same day',
+                time: 'Usually same day',
               },
             ].map((item, index) => (
               <div key={index} className="text-center relative">
@@ -215,7 +216,7 @@ const LandingPage = ({ onBookNow }) => {
                 name: 'Sarah M.',
                 location: 'Murfreesboro, TN',
                 rating: 5,
-                text: 'My refrigerator stopped cooling on a Sunday. They had someone out within 3 hours and fixed it the same day. Amazing service for Rutherford County!',
+                text: 'My refrigerator stopped cooling on a Sunday. They had someone out within 3 hours and fixed it fast. Amazing service for Rutherford County!',
                 date: '2 days ago',
               },
               {
@@ -262,8 +263,8 @@ const LandingPage = ({ onBookNow }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: 'Same-Day Service',
-                description: 'Most appointments available within 24 hours. We understand urgency.',
+                title: 'Fast Response Time',
+                description: 'Most appointments within 24 hours. We understand urgency and respond quickly.',
                 icon: '⚡',
               },
               {
@@ -305,7 +306,7 @@ const LandingPage = ({ onBookNow }) => {
             <span className="text-yellow-300">Ruin Your Day</span>
           </h2>
           <p className="text-2xl mb-4 text-blue-50 font-semibold">
-            📍 Same-Day Service Available in Rutherford County
+            📍 Fast Service Available in Rutherford County
           </p>
           <p className="text-lg mb-8 text-blue-100">
             Murfreesboro • Smyrna • LaVergne • Eagleville
@@ -317,7 +318,7 @@ const LandingPage = ({ onBookNow }) => {
           </div>
           <div className="mb-8">
             <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform">
-              📅 Book Same-Day Repair - Only $99
+              📅 Book Your Repair - Only $99
             </Button>
           </div>
           <div className="flex items-center justify-center gap-6 text-sm">
