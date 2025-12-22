@@ -52,7 +52,7 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
 
             <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
               Appliance Broken?<br />
-              <span className="text-yellow-300">We Fix It Today.</span>
+              <span className="text-yellow-300">We'll Fix It Fast.</span>
             </h2>
             <p className="text-xl md:text-2xl mb-4 text-blue-50 max-w-3xl mx-auto leading-relaxed">
               <span className="font-bold text-white">Murfreesboro • Smyrna • LaVergne • Eagleville</span>
