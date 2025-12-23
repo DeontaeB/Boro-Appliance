@@ -174,8 +174,8 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
               {
                 step: '2',
                 title: 'We Call to Confirm',
-                description: 'We will call within 2 hours to confirm your appointment and answer any questions. Real person, not a robot!',
-                time: 'Within 2 hours',
+                description: 'We will call same day to confirm your appointment and answer any questions. Real person, not a robot!',
+                time: 'Same day',
               },
               {
                 step: '3',

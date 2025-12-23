@@ -44,7 +44,7 @@ const ConfirmationPage = ({ booking, onBackToHome }) => {
             Booking Confirmed!
           </h1>
           <p className="text-2xl text-blue-600 font-semibold mb-2">
-            We'll call you within 2 hours to confirm.
+            We'll call you today to confirm.
           </p>
           <p className="text-lg text-gray-600">
             Keep your phone handy!
@@ -105,7 +105,7 @@ const ConfirmationPage = ({ booking, onBackToHome }) => {
                 1
               </div>
               <p className="text-base text-gray-800">
-                <strong>We call you within 2 hours</strong> to confirm your appointment
+                <strong>We call you same day</strong> to confirm your appointment
               </p>
             </div>
 
@@ -137,7 +137,7 @@ const ConfirmationPage = ({ booking, onBackToHome }) => {
               <div>
                 <p className="font-semibold text-green-800">Reschedule Request Received</p>
                 <p className="text-sm text-green-700">
-                  We'll call you within 2 hours to reschedule your appointment.
+                  We'll call you same day to reschedule your appointment.
                 </p>
               </div>
             </div>

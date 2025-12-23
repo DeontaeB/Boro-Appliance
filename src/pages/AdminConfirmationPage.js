@@ -170,8 +170,8 @@ const AdminConfirmationPage = ({ onBack }) => {
           </Card>
           <Card className="bg-green-50 border-green-200">
             <div className="text-center">
-              <p className="text-3xl font-bold text-green-600">2 hrs</p>
-              <p className="text-sm text-gray-600">Confirmation Deadline</p>
+              <p className="text-3xl font-bold text-green-600">Same Day</p>
+              <p className="text-sm text-gray-600">Confirmation Goal</p>
             </div>
           </Card>
         </div>
@@ -251,7 +251,7 @@ const AdminConfirmationPage = ({ onBack }) => {
                         ⏰ Action Required
                       </p>
                       <p className="text-xs text-blue-700">
-                        Call customer within 2 hours to confirm appointment. Then
+                        Call customer same day to confirm appointment. Then
                         assign a technician below.
                       </p>
                     </div>

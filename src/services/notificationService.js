@@ -11,7 +11,7 @@ export const sendBookingRequestNotifications = async (booking) => {
   // 1. Send acknowledgment to CUSTOMER
   const customerMessage = `Thanks for booking with Boro Appliance Pros!
 
-We'll call you within 2 hours to confirm your appointment for ${new Date(booking.preferred_date).toLocaleDateString()} at ${booking.preferred_time}.
+We'll call you same day to confirm your appointment for ${new Date(booking.preferred_date).toLocaleDateString()} at ${booking.preferred_time}.
 
 - Boro Appliance Pros
 (615) 555-0123`;
@@ -32,7 +32,7 @@ Date: ${new Date(booking.preferred_date).toLocaleDateString()} at ${booking.pref
 Appliance: ${booking.appliance_type}
 Address: ${booking.street_address}, ${booking.city}
 
-⏰ CALL CUSTOMER WITHIN 2 HOURS TO CONFIRM`;
+⏰ CALL CUSTOMER SAME DAY TO CONFIRM`;
 
   await logNotification({
     booking_id: booking.id,
