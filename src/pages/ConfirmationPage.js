@@ -87,10 +87,17 @@ const ConfirmationPage = ({ booking, onBackToHome }) => {
               </div>
             </div>
 
-          <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 text-center mt-6">
-            <p className="text-3xl font-bold text-green-700 mb-2">$99 Diagnostic Fee</p>
-            <p className="text-base text-green-800">
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 border-4 border-green-500 rounded-lg p-6 text-center mt-6">
+            <div className="inline-block bg-green-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-3">
+              🎉 LAUNCH SPECIAL
+            </div>
+            <p className="text-4xl font-bold text-green-700 mb-2">$79 Diagnostic Fee</p>
+            <p className="text-lg text-gray-600 line-through mb-2">Regular $99 - You Save $20!</p>
+            <p className="text-base text-green-800 mb-3">
               Pay the tech when they arrive (cash or card)
+            </p>
+            <p className="text-base text-green-900 font-semibold">
+              ✨ Waived if you approve the repair!
             </p>
           </div>
         </Card>

@@ -22,14 +22,14 @@ const BookingPage = ({ onBack, onBookingComplete, preSelectedAppliance }) => {
   });
 
   const appliances = [
-    { id: 'refrigerator', name: 'Refrigerator', icon: '🧊' },
-    { id: 'washer', name: 'Washer', icon: '🌀' },
-    { id: 'dryer', name: 'Dryer', icon: '💨' },
-    { id: 'dishwasher', name: 'Dishwasher', icon: '🍽️' },
-    { id: 'oven', name: 'Oven/Stove', icon: '🔥' },
-    { id: 'microwave', name: 'Microwave', icon: '📻' },
-    { id: 'disposal', name: 'Garbage Disposal', icon: '🗑️' },
-    { id: 'other', name: 'Other', icon: '🔧' },
+    { id: 'refrigerator', name: 'Refrigerator', icon: '🧊', avgCost: '$150-$300' },
+    { id: 'washer', name: 'Washer', icon: '🌀', avgCost: '$130-$280' },
+    { id: 'dryer', name: 'Dryer', icon: '💨', avgCost: '$120-$250' },
+    { id: 'dishwasher', name: 'Dishwasher', icon: '🍽️', avgCost: '$120-$250' },
+    { id: 'oven', name: 'Oven/Stove', icon: '🔥', avgCost: '$140-$320' },
+    { id: 'microwave', name: 'Microwave', icon: '📻', avgCost: '$100-$200' },
+    { id: 'disposal', name: 'Garbage Disposal', icon: '🗑️', avgCost: '$80-$150' },
+    { id: 'other', name: 'Other', icon: '🔧', avgCost: 'Varies' },
   ];
 
   const timeSlots = [
@@ -165,9 +165,28 @@ const BookingPage = ({ onBack, onBookingComplete, preSelectedAppliance }) => {
                     }`}
                   >
                     <div className="text-4xl mb-2">{appliance.icon}</div>
-                    <div className="text-sm font-medium">{appliance.name}</div>
+                    <div className="text-sm font-medium mb-1">{appliance.name}</div>
+                    <div className="text-xs text-gray-600">Avg: {appliance.avgCost}</div>
                   </button>
                 ))}
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                <h3 className="font-semibold mb-3 text-gray-900">All repairs include:</h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>$79 comprehensive diagnostic (launch special - waived with repair)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>Written estimate before work begins</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span>
+                    <span>90-day warranty</span>
+                  </li>
+                </ul>
               </div>
 
               <div className="mb-6">
@@ -364,16 +383,22 @@ const BookingPage = ({ onBack, onBookingComplete, preSelectedAppliance }) => {
               </div>
 
               {/* Diagnostic Fee Notice */}
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 border-4 border-green-500 rounded-lg p-6 mb-6">
                 <div className="flex items-start gap-3">
                   <div className="text-3xl">💵</div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">$99 Diagnostic Fee - Pay at Appointment</h3>
+                    <div className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
+                      🎉 LAUNCH SPECIAL
+                    </div>
+                    <h3 className="font-bold text-xl mb-2">$79 Diagnostic Fee - Pay at Appointment</h3>
                     <p className="text-sm text-gray-700 mb-2">
-                      No payment is required now. You will pay the $99 diagnostic fee directly to the technician when they arrive.
+                      <span className="line-through text-gray-500">Regular $99</span> <span className="font-bold text-green-600">Save $20!</span>
                     </p>
-                    <p className="text-sm text-gray-700">
-                      The tech will diagnose your appliance, provide a repair quote, and if you choose to proceed, the diagnostic fee will be applied to your total repair cost.
+                    <p className="text-sm text-gray-700 mb-2">
+                      No payment is required now. You will pay the $79 diagnostic fee directly to the technician when they arrive.
+                    </p>
+                    <p className="text-sm text-gray-700 font-semibold text-green-700">
+                      ✨ If you approve the repair, the $79 fee is completely waived - you only pay for the repair!
                     </p>
                   </div>
                 </div>

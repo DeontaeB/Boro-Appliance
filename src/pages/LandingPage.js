@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-const LandingPage = ({ onBookNow, onApplianceSelect }) => {
+const LandingPage = ({ onBookNow, onApplianceSelect, onNavigate }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -13,7 +13,8 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#services" className="text-gray-700 hover:text-primary transition">Services</a>
-              <a href="#how-it-works" className="text-gray-700 hover:text-primary transition">How It Works</a>
+              <button onClick={() => onNavigate && onNavigate('how-it-works')} className="text-gray-700 hover:text-primary transition">How It Works</button>
+              <button onClick={() => onNavigate && onNavigate('pricing')} className="text-gray-700 hover:text-primary transition">Pricing</button>
               <a href="#reviews" className="text-gray-700 hover:text-primary transition">Reviews</a>
             </div>
             <Button onClick={onBookNow} size="md">
@@ -51,29 +52,44 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
             </div>
 
             <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-              Appliance Broken?<br />
-              <span className="text-yellow-300">We'll Fix It Fast.</span>
+              Book Appliance Repair<br />
+              <span className="text-yellow-300">In 60 Seconds</span>
             </h2>
-            <p className="text-xl md:text-2xl mb-4 text-blue-50 max-w-3xl mx-auto leading-relaxed">
-              <span className="font-bold text-white">Murfreesboro • Smyrna • LaVergne • Eagleville</span>
-            </p>
-            <p className="text-lg md:text-xl mb-10 text-blue-100 max-w-3xl mx-auto">
-              Fast response. Expert techs. Upfront pricing.<br />
-              <span className="font-bold text-white text-2xl">Only $99 Diagnostic Fee</span>
+
+            {/* Launch Special Badge */}
+            <div className="inline-block bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-2xl shadow-2xl mb-6 border-4 border-green-300 animate-pulse">
+              <p className="text-sm font-bold uppercase tracking-wide mb-1">🎉 Launch Special</p>
+              <p className="text-4xl font-extrabold mb-1">$79 Diagnostic Fee</p>
+              <p className="text-sm opacity-90">
+                <span className="line-through mr-2">Regular $99</span>
+                Save $20 - First 50 Customers
+              </p>
+            </div>
+
+            <p className="text-xl md:text-2xl mb-8 text-blue-50 max-w-3xl mx-auto leading-relaxed font-semibold">
+              Confirmed same day. Tracked in real-time. Fixed fast.
             </p>
 
             {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform">
-                📅 Book Your Repair - $99
+            <div className="flex flex-col items-center mb-8">
+              <Button onClick={onBookNow} size="lg" variant="secondary" className="shadow-2xl transform hover:scale-105 transition-transform text-xl px-12 py-6">
+                📅 Book Now - $79 Diagnostic
               </Button>
-              <div className="flex flex-col items-center sm:items-start">
-                <p className="text-sm text-yellow-300 font-semibold">
-                  ⚡ Available TODAY in Rutherford County
-                </p>
-                <p className="text-xs text-blue-200">
-                  Most appointments within 2-4 hours
-                </p>
+
+              {/* Benefits Below CTA */}
+              <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <span className="text-green-300 font-bold">✓</span>
+                  <span>No phone calls needed</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <span className="text-green-300 font-bold">✓</span>
+                  <span>Same day confirmation</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <span className="text-green-300 font-bold">✓</span>
+                  <span>Track your tech</span>
+                </div>
               </div>
             </div>
 
@@ -106,6 +122,153 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
           </p>
         </div>
       </div>
+
+      {/* Comparison Table - Why Choose Boro */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">
+            Why Choose Boro Appliance Pros?
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            We're not your typical appliance repair company. Here's how we're different:
+          </p>
+
+          {/* Desktop Comparison Table */}
+          <div className="hidden md:block overflow-hidden rounded-2xl shadow-2xl border-2 border-gray-200">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gradient-to-r from-gray-100 to-gray-200">
+                  <th className="py-4 px-6 text-left text-gray-700 font-bold">Feature</th>
+                  <th className="py-4 px-6 text-center text-gray-700 font-bold">Old-School Repair</th>
+                  <th className="py-4 px-6 text-center bg-blue-600 text-white font-bold">Boro Appliance Pros ✨</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {[
+                  { feature: 'Booking', old: 'Call & wait', new: '60-second online booking' },
+                  { feature: 'Confirmation', old: '"We\'ll call back"', new: 'Confirmed same day' },
+                  { feature: 'Updates', old: 'Call them for updates', new: 'Automated SMS updates' },
+                  { feature: 'Tech Tracking', old: 'No idea where they are', new: 'Real-time "15 min away"' },
+                  { feature: 'Pricing', old: '"Call for quote"', new: 'All prices shown upfront' },
+                  { feature: 'Follow-up', old: 'Maybe they call you', new: 'Auto review request' },
+                  { feature: 'Rebooking', old: 'Call again', new: 'One-click in portal' },
+                ].map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="py-4 px-6 font-semibold text-gray-900">{row.feature}</td>
+                    <td className="py-4 px-6 text-center text-gray-600">{row.old}</td>
+                    <td className="py-4 px-6 text-center bg-blue-50 font-semibold text-blue-900">{row.new}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Comparison Cards */}
+          <div className="md:hidden space-y-6">
+            {[
+              { feature: 'Booking', old: 'Call & wait', new: '60-second online booking' },
+              { feature: 'Confirmation', old: '"We\'ll call back"', new: 'Confirmed same day' },
+              { feature: 'Updates', old: 'Call them for updates', new: 'Automated SMS updates' },
+              { feature: 'Tech Tracking', old: 'No idea where they are', new: 'Real-time "15 min away"' },
+              { feature: 'Pricing', old: '"Call for quote"', new: 'All prices shown upfront' },
+            ].map((row, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg border-2 border-gray-200 p-6">
+                <h3 className="font-bold text-lg mb-4 text-gray-900">{row.feature}</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-gray-500 mb-2">Old Way</p>
+                    <p className="text-sm text-gray-600">{row.old}</p>
+                  </div>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <p className="text-xs text-blue-700 mb-2 font-semibold">Our Way ✨</p>
+                    <p className="text-sm text-blue-900 font-semibold">{row.new}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button onClick={onBookNow} size="lg">
+              Book the Modern Way →
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparent Pricing Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">
+            Transparent Pricing - No Surprises
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            We believe in upfront, honest pricing. Here's exactly what you'll pay:
+          </p>
+
+          {/* Diagnostic Fee Card */}
+          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-2xl p-8 mb-12 text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex-1">
+                <div className="inline-block bg-green-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-3">
+                  🎉 LAUNCH SPECIAL
+                </div>
+                <h3 className="text-5xl font-extrabold mb-3">
+                  $79 Diagnostic Fee
+                </h3>
+                <p className="text-blue-100 text-lg line-through mb-2">Regular $99</p>
+                <p className="text-xl mb-4">Includes comprehensive 30-point inspection + detailed repair estimate</p>
+                <p className="text-2xl font-bold text-yellow-300">
+                  ✨ Waived if you approve the repair!
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-white/30">
+                <p className="text-sm mb-2 opacity-90">What's Included:</p>
+                <ul className="space-y-2 text-sm">
+                  <li>✓ Full diagnostic (not just "we look at it")</li>
+                  <li>✓ Written repair estimate</li>
+                  <li>✓ 90-day warranty</li>
+                  <li>✓ Same-day service available</li>
+                  <li>✓ No hidden fees</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Average Repair Costs */}
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">Average Repair Costs</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              { appliance: 'Refrigerator', range: '$150-$300', icon: '❄️' },
+              { appliance: 'Dishwasher', range: '$120-$250', icon: '🍽️' },
+              { appliance: 'Washer/Dryer', range: '$130-$280', icon: '🔄' },
+              { appliance: 'Oven/Stove', range: '$140-$320', icon: '🔥' },
+            ].map((item, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200 text-center hover:border-blue-500 transition">
+                <div className="text-5xl mb-3">{item.icon}</div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{item.appliance}</h4>
+                <p className="text-2xl font-extrabold text-blue-600">{item.range}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Why $79 Explanation */}
+          <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-8 text-center">
+            <h4 className="text-xl font-bold mb-4 text-gray-900">Why $79?</h4>
+            <p className="text-gray-700 mb-4 max-w-3xl mx-auto">
+              Our diagnostic is <span className="font-bold">comprehensive</span>. We identify ALL issues, not just the obvious one.
+              Plus, if you approve the repair, the $79 is <span className="font-bold text-blue-600">completely waived</span>—meaning
+              you only pay for the repair itself.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <span className="bg-white px-4 py-2 rounded-full font-semibold">✗ No hidden fees</span>
+              <span className="bg-white px-4 py-2 rounded-full font-semibold">✗ No weekend charges</span>
+              <span className="bg-white px-4 py-2 rounded-full font-semibold">✗ No travel fees</span>
+              <span className="bg-white px-4 py-2 rounded-full font-semibold">✗ No surprises</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -168,7 +331,7 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
               {
                 step: '1',
                 title: 'Book Online in 60 Seconds',
-                description: 'Choose your appliance, pick a time that works for you. $99 diagnostic fee - pay cash or card at appointment.',
+                description: 'Choose your appliance, pick a time that works for you. $79 diagnostic fee (launch special) - pay cash or card at appointment.',
                 time: 'Takes 1 minute',
               },
               {
@@ -207,47 +370,50 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
       {/* Social Proof / Reviews Section */}
       <section id="reviews" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            What Our Customers Say
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">
+            What Murfreesboro Residents Are Saying
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Real reviews from local customers who love the modern booking experience
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 name: 'Sarah M.',
-                location: 'Murfreesboro, TN',
+                location: 'Indian Park',
                 rating: 5,
-                text: 'My refrigerator stopped cooling on a Sunday. They had someone out within 3 hours and fixed it fast. Amazing service for Rutherford County!',
-                date: '2 days ago',
+                text: 'Finally! I booked my fridge repair at 11pm from my couch. Tech showed up next morning. So much easier than calling around.',
+                date: '3 days ago',
               },
               {
-                name: 'John D.',
-                location: 'Smyrna, TN',
+                name: 'Mike R.',
+                location: 'Blackman',
                 rating: 5,
-                text: 'Finally found a local company I can trust! Upfront pricing with no surprises. The tech was professional and explained everything. Will definitely use again.',
+                text: 'Got a text when the tech was 15 minutes away. No more waiting around all afternoon!',
                 date: '1 week ago',
               },
               {
-                name: 'Lisa K.',
-                location: 'LaVergne, TN',
+                name: 'Jessica T.',
+                location: 'MTSU Area',
                 rating: 5,
-                text: 'Fixed my washer in under an hour. The booking process was so easy and they actually showed up on time. Best appliance repair in Rutherford County!',
+                text: 'Price was clear upfront. No surprise fees. Fridge fixed same day. This is how it should be.',
                 date: '2 weeks ago',
               },
             ].map((review, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition">
                 <div className="flex items-center mb-4">
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-800">{review.name}</h4>
-                    <p className="text-sm text-gray-500">{review.location}</p>
+                    <h4 className="font-bold text-lg text-gray-900">{review.name}</h4>
+                    <p className="text-sm text-blue-600 font-semibold">{review.location}</p>
                   </div>
                   <span className="text-xs text-gray-400">{review.date}</span>
                 </div>
-                <div className="flex mb-3">
+                <div className="flex mb-4">
                   {[...Array(review.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                    <span key={i} className="text-yellow-400 text-xl">⭐</span>
                   ))}
                 </div>
-                <p className="text-gray-600 italic">"{review.text}"</p>
+                <p className="text-gray-700 text-base leading-relaxed">"{review.text}"</p>
               </div>
             ))}
           </div>
@@ -269,7 +435,7 @@ const LandingPage = ({ onBookNow, onApplianceSelect }) => {
               },
               {
                 title: 'Transparent Pricing',
-                description: '$99 diagnostic fee. Quote before work begins. No hidden charges ever.',
+                description: '$79 diagnostic fee (launch special). Quote before work begins. No hidden charges ever.',
                 icon: '💰',
               },
               {
