@@ -29,7 +29,7 @@ const LandingPage = ({ onBookNow, onApplianceSelect, onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="font-bold text-sm md:text-base flex items-center justify-center gap-2">
             <span className="text-xl">📍</span>
-            Proudly Serving Rutherford County Since 2020 - Your Local Appliance Experts
+            Proudly Serving Rutherford County - Your Modern Appliance Experts
           </p>
         </div>
       </div>
