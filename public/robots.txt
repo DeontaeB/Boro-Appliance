@@ -1,3 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow all crawlers
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin
+Disallow: /#admin
+
+# Sitemap location
+Sitemap: https://boroappliancepros.com/sitemap.xml
