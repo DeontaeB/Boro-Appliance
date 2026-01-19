@@ -54,12 +54,12 @@
       "priceRange": "$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "",
         "addressLocality": "Murfreesboro",
         "addressRegion": "TN",
         "postalCode": "37129",
         "addressCountry": "US"
       },
+      "areaServedDescription": "Serving Murfreesboro, Smyrna, La Vergne, Eagleville, Christiana, and all of Rutherford County, TN",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": 35.8456,
@@ -151,6 +151,127 @@
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "200"
+      },
+      "slogan": "Book Online in 60 Seconds - Same-Day Service Available",
+      "paymentAccepted": "Cash, Credit Card, Debit Card, Venmo, CashApp",
+      "currenciesAccepted": "USD"
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does appliance repair cost in Murfreesboro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our diagnostic fee is $79, which is waived when you proceed with the repair. Final repair costs vary based on the appliance type and required parts. Most repairs range from $150-$400."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer same-day appliance repair?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We offer same-day service for appointments booked before noon, subject to technician availability. Book online in 60 seconds to secure your spot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We serve Murfreesboro, Smyrna, La Vergne, Eagleville, Christiana, and all of Rutherford County, TN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What brands of appliances do you repair?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We repair all major appliance brands including Whirlpool, GE, Samsung, LG, Maytag, Frigidaire, KitchenAid, and more. We service refrigerators, dishwashers, washers, dryers, ovens, and stoves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you licensed and insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Boro Appliance Pros is fully licensed and insured to protect you and your home during repairs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Appliance Repair",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Boro Appliance Pros"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Murfreesboro",
+          "@id": "https://en.wikipedia.org/wiki/Murfreesboro,_Tennessee"
+        },
+        {
+          "@type": "City",
+          "name": "Smyrna",
+          "@id": "https://en.wikipedia.org/wiki/Smyrna,_Tennessee"
+        },
+        {
+          "@type": "City",
+          "name": "La Vergne",
+          "@id": "https://en.wikipedia.org/wiki/La_Vergne,_Tennessee"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Appliance Repair Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Refrigerator Repair Murfreesboro TN",
+              "description": "Professional refrigerator repair service"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dishwasher Repair Murfreesboro TN",
+              "description": "Expert dishwasher repair and maintenance"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Washer Repair Murfreesboro TN",
+              "description": "Washing machine repair for all brands"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dryer Repair Murfreesboro TN",
+              "description": "Fast dryer repair service"
+            }
+          }
+        ]
       }
     }
     </script>
